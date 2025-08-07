@@ -103,7 +103,13 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1575573685828-7c1e20f05124?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVyYmFidXxlbnwwfHwwfHx8MA%3D%3D')" }}>
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1575573685828-7c1e20f05124?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVyYmFidXxlbnwwfHwwfHx8MA%3D%3D')",
+        backgroundAttachment: 'fixed', // Fixed background
+      }}
+    >
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/50"></div>
 
@@ -115,7 +121,7 @@ const App = () => {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium ${
+                className={`px-4 py-2 rounded-full transition-all duration-300 text-xs sm:text-sm font-medium ${
                   activeSection === section 
                     ? 'bg-white text-teal-800 shadow-lg' 
                     : 'text-white hover:bg-white/20'
@@ -129,64 +135,62 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <div className={`relative z-10 text-center py-8 px-4 transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+      <div className={`relative z-10 text-center py-6 px-4 transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="flex items-center justify-center mb-4">
-          <Mountain className="text-teal-300 w-10 h-10 mr-3 animate-bounce" />
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-teal-300 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
+          <Mountain className="text-teal-300 w-8 h-8 sm:w-10 sm:h-10 mr-3 animate-bounce" />
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-teal-300 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
             GOHAPPY
           </h1>
-          <Mountain className="text-teal-300 w-10 h-10 ml-3 animate-bounce" />
+          <Mountain className="text-teal-300 w-8 h-8 sm:w-10 sm:h-10 ml-3 animate-bounce" />
         </div>
-        <p className="text-white text-xl sm:text-2xl mb-4 font-semibold drop-shadow-md animate-pulse">
+        <p className="text-white text-lg sm:text-xl mb-4 font-semibold drop-shadow-md animate-pulse">
           Escape a Little, Smile a Lot ✨
         </p>
-        <p className="text-blue-200 text-lg sm:text-xl mb-2 font-medium">Gunung Merbabu Adventure</p>
-        <p className="text-blue-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+        <p className="text-blue-200 text-sm sm:text-lg mb-2 font-medium">Gunung Merbabu Adventure</p>
+        <p className="text-blue-200 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-6">
           Nikmati petualangan tak terlupakan di Gunung Merbabu yang menawan dengan pemandangan savana yang memukau
         </p>
         
         {/* CTA Button */}
-        <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 hover:scale-105 mb-8">
+        <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white px-6 py-3 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 hover:scale-105 mb-6">
           <div className="flex items-center gap-2">
             <span>Daftar Sekarang</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
         </button>
         
         {/* Trip Info Cards */}
-        <div className="flex flex-wrap justify-center gap-4 px-2">
-          <div className="bg-white/30 backdrop-blur-md rounded-xl p-4 flex items-center space-x-3 hover:bg-white/40 transition-all duration-300 hover:scale-105 shadow-lg">
-            <Calendar className="w-5 h-5 text-teal-300" />
-            <span className="text-white font-medium">2 Hari 1 Malam</span>
-          </div>
-          <div className="bg-white/30 backdrop-blur-md rounded-xl p-4 flex items-center space-x-3 hover:bg-white/40 transition-all duration-300 hover:scale-105 shadow-lg">
-            <Users className="w-5 h-5 text-teal-300" />
-            <span className="text-white font-medium">Max 15 Orang</span>
-          </div>
-          <div className="bg-white/30 backdrop-blur-md rounded-xl p-4 flex items-center space-x-3 hover:bg-white/40 transition-all duration-300 hover:scale-105 shadow-lg">
-            <MapPin className="w-5 h-5 text-teal-300" />
-            <span className="text-white font-medium">Gunung Merbabu</span>
-          </div>
-          <div className="bg-white/30 backdrop-blur-md rounded-xl p-4 flex items-center space-x-3 hover:bg-white/40 transition-all duration-300 hover:scale-105 shadow-lg">
-            <Star className="w-5 h-5 text-teal-300" />
-            <span className="text-white font-medium">3.145 MDPL</span>
-          </div>
+        <div className="flex flex-wrap justify-center gap-3 px-2">
+          {[
+            { icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-teal-300" />, text: "2 Hari 1 Malam" },
+            { icon: <Users className="w-4 h-4 sm:w-5 sm:h-5 text-teal-300" />, text: "Max 15 Orang" },
+            { icon: <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-teal-300" />, text: "Gunung Merbabu" },
+            { icon: <Star className="w-4 h-4 sm:w-5 sm:h-5 text-teal-300" />, text: "3.145 MDPL" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/30 backdrop-blur-md rounded-xl p-3 flex items-center space-x-2 sm:space-x-3 hover:bg-white/40 transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              {item.icon}
+              <span className="text-white font-medium text-xs sm:text-base">{item.text}</span>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Gallery Section */}
       <div id="gallery" className="relative z-10 px-4 pb-12">
         <div className={`max-w-7xl mx-auto transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
-              <Camera className="w-8 h-8 text-teal-300 mr-3" />
-              <h2 className="text-4xl font-bold text-white drop-shadow-lg">Galeri Perjalanan</h2>
-              <Camera className="w-8 h-8 text-teal-300 ml-3" />
+              <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-teal-300 mr-3" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Galeri Perjalanan</h2>
+              <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-teal-300 ml-3" />
             </div>
-            <p className="text-blue-200 text-lg">Klik foto untuk melihat quote inspiratif dan keindahan Merbabu</p>
+            <p className="text-blue-200 text-sm sm:text-lg">Klik foto untuk melihat quote inspiratif dan keindahan Merbabu</p>
           </div>
           
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {images.map((image, index) => (
               <div 
                 key={index} 
@@ -204,16 +208,16 @@ const App = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="font-bold text-base">{image.title}</h3>
-                    <p className="text-sm text-blue-200 mt-1">Klik untuk quote inspiratif</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="font-bold text-sm sm:text-base">{image.title}</h3>
+                    <p className="text-xs sm:text-sm text-blue-200 mt-1">Klik untuk quote inspiratif</p>
                   </div>
                 </div>
-                <div className="absolute top-3 right-3 w-10 h-10 bg-teal-400/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-teal-300">
-                  <Camera className="w-5 h-5 text-white" />
+                <div className="absolute top-2 sm:top-3 right-2 sm:right-3 w-8 sm:w-10 h-8 sm:h-10 bg-teal-400/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-teal-300">
+                  <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div className="absolute top-3 left-3 bg-blue-500/80 backdrop-blur-sm rounded-full px-3 py-1">
-                  <span className="text-white text-sm font-bold">#{index + 1}</span>
+                <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-blue-500/80 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1">
+                  <span className="text-white text-xs sm:text-sm font-bold">#{index + 1}</span>
                 </div>
               </div>
             ))}
@@ -224,24 +228,24 @@ const App = () => {
       {/* Itinerary Section */}
       <div id="itinerary" className="relative z-10 px-4 pb-12">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white drop-shadow-lg mb-4">Jadwal Perjalanan</h2>
-            <p className="text-blue-200 text-lg">Rencana lengkap petualangan GOHAPPY di Gunung Merbabu</p>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg mb-4">Jadwal Perjalanan</h2>
+            <p className="text-blue-200 text-sm sm:text-lg">Rencana lengkap petualangan GOHAPPY di Gunung Merbabu</p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {itinerary.map((day, dayIndex) => (
-              <div key={dayIndex} className="bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-white/30">
-                <h3 className="text-2xl font-bold text-white mb-2">{day.day}</h3>
-                <p className="text-teal-300 font-semibold text-lg mb-6">{day.title}</p>
-                <div className="space-y-4">
+              <div key={dayIndex} className="bg-white/20 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-2xl border border-white/30">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{day.day}</h3>
+                <p className="text-teal-300 font-semibold text-base sm:text-lg mb-4 sm:mb-6">{day.title}</p>
+                <div className="space-y-3 sm:space-y-4">
                   {day.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-center gap-4 p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-all duration-300">
+                    <div key={itemIndex} className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-all duration-300">
                       <div className="flex items-center gap-2 text-teal-300">
                         {item.icon}
-                        <span className="font-bold text-sm">{item.time}</span>
+                        <span className="font-bold text-xs sm:text-sm">{item.time}</span>
                       </div>
-                      <span className="text-white">{item.activity}</span>
+                      <span className="text-white text-xs sm:text-sm">{item.activity}</span>
                     </div>
                   ))}
                 </div>
@@ -254,16 +258,16 @@ const App = () => {
       {/* Facilities Section */}
       <div id="facilities" className="relative z-10 px-4 pb-12">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white drop-shadow-lg mb-4">Fasilitas Trip</h2>
-            <p className="text-blue-200 text-lg">Semua yang Anda butuhkan untuk petualangan yang aman dan menyenangkan</p>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg mb-4">Fasilitas Trip</h2>
+            <p className="text-blue-200 text-sm sm:text-lg">Semua yang Anda butuhkan untuk petualangan yang aman dan menyenangkan</p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {facilities.map((facility, index) => (
-              <div key={index} className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center shadow-2xl border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
-                <div className="text-4xl mb-4">{facility.icon}</div>
-                <h3 className="text-white font-bold text-lg">{facility.name}</h3>
+              <div key={index} className="bg-white/20 backdrop-blur-md rounded-2xl p-4 sm:p-6 text-center shadow-2xl border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
+                <div className="text-3xl sm:text-4xl mb-4">{facility.icon}</div>
+                <h3 className="text-white font-bold text-base sm:text-lg">{facility.name}</h3>
               </div>
             ))}
           </div>
@@ -273,15 +277,15 @@ const App = () => {
       {/* Contact Section */}
       <div className="relative z-10 px-4 pb-12">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl p-8 shadow-2xl">
-            <h2 className="text-3xl font-bold text-white mb-4">Siap untuk Petualangan?</h2>
-            <p className="text-white/90 text-lg mb-6">Hubungi kami sekarang dan wujudkan impian petualangan Merbabu Anda!</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-white text-teal-800 px-6 py-3 rounded-full font-bold hover:bg-teal-100 transition-all duration-300 hover:scale-105 flex items-center gap-2">
-                <Phone className="w-5 h-5" />
+          <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Siap untuk Petualangan?</h2>
+            <p className="text-white/90 text-sm sm:text-lg mb-4 sm:mb-6">Hubungi kami sekarang dan wujudkan impian petualangan Merbabu Anda!</p>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              <button className="bg-white text-teal-800 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-teal-100 transition-all duration-300 hover:scale-105 flex items-center gap-2">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 WhatsApp: +62 857-4270-4619
               </button>
-              <button className="bg-white/20 text-white px-6 py-3 rounded-full font-bold hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
+              <button className="bg-white/20 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30">
                 Instagram: @gohappy.id_
               </button>
             </div>
@@ -294,13 +298,13 @@ const App = () => {
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
           <div className="bg-gradient-to-br from-teal-800 to-blue-900 rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-white/20 animate-scale-in">
             {/* Modal Header */}
-            <div className="flex justify-between items-center p-6 border-b border-white/20 bg-gradient-to-r from-teal-400 to-blue-500">
-              <h3 className="text-2xl font-bold text-white">{selectedImage.title}</h3>
+            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-white/20 bg-gradient-to-r from-teal-400 to-blue-500">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">{selectedImage.title}</h3>
               <button
                 onClick={closeModal}
-                className="w-12 h-12 bg-red-500/30 hover:bg-red-500/50 rounded-full flex items-center justify-center transition-colors duration-200 group border border-red-300/50"
+                className="w-10 sm:w-12 h-10 sm:h-12 bg-red-500/30 hover:bg-red-500/50 rounded-full flex items-center justify-center transition-colors duration-200 group border border-red-300/50"
               >
-                <X className="w-6 h-6 text-red-200 group-hover:text-white" />
+                <X className="w-5 sm:w-6 h-5 sm:h-6 text-red-200 group-hover:text-white" />
               </button>
             </div>
             
@@ -311,25 +315,25 @@ const App = () => {
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.title}
-                  className="w-full h-64 sm:h-80 lg:h-[600px] object-contain"
+                  className="w-full h-48 sm:h-64 lg:h-[500px] object-contain"
                 />
-                <div className="absolute top-4 left-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full px-4 py-2">
-                  <span className="text-white text-sm font-bold">#{selectedImage.index + 1} - Merbabu</span>
+                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full px-3 sm:px-4 py-1 sm:py-2">
+                  <span className="text-white text-xs sm:text-sm font-bold">#{selectedImage.index + 1} - Merbabu</span>
                 </div>
               </div>
               
               {/* Quote Section */}
-              <div className="lg:w-1/3 p-8 flex flex-col justify-center bg-gradient-to-br from-teal-900/50 to-blue-900/50">
+              <div className="lg:w-1/3 p-4 sm:p-6 lg:p-8 flex flex-col justify-center bg-gradient-to-br from-teal-900/50 to-blue-900/50">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-                    <Mountain className="w-10 h-10 text-white" />
+                  <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl">
+                    <Mountain className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
                   </div>
-                  <h4 className="text-teal-300 font-bold text-xl mb-4">{selectedImage.title}</h4>
-                  <blockquote className="text-white text-lg leading-relaxed italic mb-6 bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+                  <h4 className="text-teal-300 font-bold text-lg sm:text-xl mb-4">{selectedImage.title}</h4>
+                  <blockquote className="text-white text-sm sm:text-lg leading-relaxed italic mb-4 sm:mb-6 bg-white/10 p-3 sm:p-4 rounded-xl backdrop-blur-sm">
                     "{selectedImage.quote}"
                   </blockquote>
-                  <div className="w-16 h-1 bg-gradient-to-r from-teal-400 to-blue-500 mx-auto mb-4 rounded-full"></div>
-                  <p className="text-blue-300 text-sm font-semibold">GOHAPPY - Escape a Little, Smile a Lot</p>
+                  <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-teal-400 to-blue-500 mx-auto mb-4 rounded-full"></div>
+                  <p className="text-blue-300 text-xs sm:text-sm font-semibold">GOHAPPY - Escape a Little, Smile a Lot</p>
                   <p className="text-blue-400 text-xs mt-2">Gunung Merbabu Adventure</p>
                 </div>
               </div>
@@ -338,9 +342,7 @@ const App = () => {
         </div>
       )}
 
-      {/* <style jsx>{`
-       
-      `}</style> */}
+
     </div>
   );
 };
