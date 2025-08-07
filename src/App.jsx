@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Mountain, Camera, MapPin, Calendar, Users, Star, ArrowRight, Play, Heart, Award, Coffee, Tent, Sun, Moon, TreePine, Compass, Clock, Phone } from 'lucide-react';
+import { X, Mountain, Camera, MapPin, Calendar, Users, Star, ArrowRight, Heart, Award, Coffee, Tent, Sun, Moon, TreePine, Compass, Phone } from 'lucide-react';
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -107,7 +107,7 @@ const App = () => {
       className="min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1575573685828-7c1e20f05124?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVyYmFidXxlbnwwfHwwfHx8MA%3D%3D')",
-        backgroundAttachment: 'fixed', // Fixed background
+        backgroundAttachment: 'fixed',
       }}
     >
       {/* Overlay for better text readability */}
@@ -190,7 +190,7 @@ const App = () => {
             <p className="text-blue-200 text-sm sm:text-lg">Klik foto untuk melihat quote inspiratif dan keindahan Merbabu</p>
           </div>
           
-          <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {images.map((image, index) => (
               <div 
                 key={index} 
@@ -295,8 +295,8 @@ const App = () => {
 
       {/* Modal/Popup */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
-          <div className="bg-gradient-to-br from-teal-800 to-blue-900 rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-white/20 animate-scale-in">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 z-50 animate-fade-in">
+          <div className="bg-gradient-to-br from-teal-800 to-blue-900 rounded-3xl max-w-6xl w-full max-h-[98vh] overflow-hidden shadow-2xl border border-white/20 animate-scale-in">
             {/* Modal Header */}
             <div className="flex justify-between items-center p-4 sm:p-6 border-b border-white/20 bg-gradient-to-r from-teal-400 to-blue-500">
               <h3 className="text-xl sm:text-2xl font-bold text-white">{selectedImage.title}</h3>
@@ -311,11 +311,11 @@ const App = () => {
             {/* Modal Content */}
             <div className="flex flex-col lg:flex-row h-full">
               {/* Image */}
-              <div className="lg:w-2/3 relative bg-black">
+              <div className="lg:w-2/3 relative bg-black flex items-center justify-center">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.title}
-                  className="w-full h-48 sm:h-64 lg:h-[500px] object-contain"
+                  className="w-full h-60 sm:h-80 lg:h-[600px] object-contain"
                 />
                 <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full px-3 sm:px-4 py-1 sm:py-2">
                   <span className="text-white text-xs sm:text-sm font-bold">#{selectedImage.index + 1} - Merbabu</span>
@@ -341,8 +341,6 @@ const App = () => {
           </div>
         </div>
       )}
-
-
     </div>
   );
 };
